@@ -1,0 +1,30 @@
+{
+  "team": {
+    "president": 1,
+    "developers": { "min": 3, "max": 6, "default": 4 },
+    "testers":    { "min": 4, "max": 6, "default": 5 },
+    "docwriters": { "min": 2, "max": 4, "default": 3 }
+  },
+  "languages": ["C++", "Python", "Node.js", "Lua", "Rust", "C#"],
+  "efficiency": {
+    "reference": "references/efficiency.md",
+    "unresolved_calls_max": 0,
+    "signature_mismatches_max": 0,
+    "coverage_min": 80,
+    "build_time_regression_max_pct": 10,
+    "p95_regression_max_pct": 5
+  },
+  "export": {
+    "formats": ["pdf", "docx", "txt"],
+    "preferred": { "pdf": "python-fpdf2", "docx": "python-docx", "txt": "python-stdlib" },
+    "fallback":  { "pdf": "node-pdfkit", "docx": "node-docx" },
+    "output_dir": "out/",
+    "cyrillic_font": "assets/fonts/DejaVuSans.ttf",
+    "verify": ["exit_code==0", "size>0", "reopen_ok"]
+  },
+  "docs": {
+    "enabled_if": "repo.is_github AND repo.is_public",
+    "artifacts": ["openapi.yaml", "README.md", "CHANGELOG.md", "examples/"]
+  },
+  "limits": { "build_test_cycles_max": 3, "branch": "feature/*" }
+}
